@@ -41,3 +41,40 @@ ssh azureuser@<public-ip>
 
 5. Limpiar recursos
 terraform destroy
+
+--
+Recursos Creados
+
+Recurso Descripción 
+Resource Group Contenedor para todos los recursos 
+Virtual Network Red virtual con espacio de direcciones 10.0.0.0/16
+Subnet Subred con rango 10.0.2.0/24
+Public IP IP pública estática para la VM
+Network Security Group Reglas de firewall (SSH, HTTP, HTTPS)
+Network Interface Interfaz de red para la VM
+Linux VM Ubuntu 20.04 LTS con autenticación SSH
+
+Costos Estimados
+
+VM Standard_B2s: ~$30-40/mes
+Public IP: ~$3-4/mes
+Storage: ~$5-10/mes
+Network: ~$1-2/mes
+
+Total aproximado: $40-60/mes USD
+
+Seguridad
+
+✅ Autenticación SSH sin contraseña
+✅ Network Security Group configurado
+✅ Acceso SSH restringido por IP (configurable)
+✅ Secrets manejados por GitHub Actions
+
+Personalización
+
+Para modificar la infraestructura:
+
+- Edita las variables en terraform.tfvars
+- Modifica los recursos en main.tf
+- Ejecuta terraform plan para ver los cambios
+- Aplica con terraform apply
